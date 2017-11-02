@@ -16,11 +16,11 @@ namespace GiraffeChess.Test
         }
 
         [TestMethod]
-        public void NewBoard_ShouldBeFilledOnBothSides()
+        public void NewBoard_ShouldBeStartingSideWhite()
         {
             var sut = new Board();
 
-            Fail("TODO");
+            AreEqual(Side.White, sut.TurnSide);
         }
 
         [TestMethod]

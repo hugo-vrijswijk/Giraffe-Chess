@@ -15,14 +15,18 @@
     <PackageReference Include="SpecFlow.MsTest" Version="2.1.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
   </ItemGroup>
+  
   <ItemGroup>
     <DotNetCliToolReference Include="SpecFlow.NetCore" Version="1.0.0" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\GiraffeChess.DomainService\GiraffeChess.DomainService.csproj" />
     <ProjectReference Include="..\GiraffeChess.Domain\GiraffeChess.Domain.csproj" />
   </ItemGroup>
+  
   <Target Name="PrecompileScript" BeforeTargets="BeforeBuild">
     <Exec Command="dotnet SpecFlow.NetCore" />
   </Target>
+  
 </Project>

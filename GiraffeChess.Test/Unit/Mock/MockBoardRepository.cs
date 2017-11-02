@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using GiraffeChess.Domain.Domain;
 
-namespace GiraffeChess.Application
+namespace GiraffeChess.Test.Unit.Mock
 {
-    public class BoardRepository : IBoardRepository
+    class MockBoardRepository : IBoardRepository
     {
         public Board NewGame()
         {
-            throw new NotImplementedException();
+            return new Board { Id = 1 };
         }
     }
 }
