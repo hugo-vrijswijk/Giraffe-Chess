@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GiraffeChess.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class BoardTest
     {
         [TestMethod]
         public void TestMethod1()

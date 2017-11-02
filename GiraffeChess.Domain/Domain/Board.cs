@@ -6,9 +6,11 @@ namespace GiraffeChess.Domain.Domain
 {
     public class Board
     {
+        private const int boardSize = 8;
         public Side TurnSide { get; set; }
 
-        public BoardTile[,] Tiles { get; } = new BoardTile[8, 8];
+        public BoardTile[,] Tiles { get; } = new BoardTile[boardSize, boardSize];
+
         public Board()
         {
 

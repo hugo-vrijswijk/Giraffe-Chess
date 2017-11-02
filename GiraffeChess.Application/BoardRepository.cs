@@ -1,4 +1,4 @@
-﻿using GiraffeChess.Service;
+﻿using GiraffeChess.DomainService;
 using System;
 using System.Collections.Generic;
 using System.Text;

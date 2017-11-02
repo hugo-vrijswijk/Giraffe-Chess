@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GiraffeChess.Service
+namespace GiraffeChess.DomainService
 {
     public interface IBoardRepository
     {
