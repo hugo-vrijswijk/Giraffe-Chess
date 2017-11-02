@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GiraffeChess.Service\GiraffeChess.Service.csproj" />
+    <ProjectReference Include="..\GiraffeChess.Service\GiraffeChess.DomainService.csproj" />
   </ItemGroup>
 
 </Project>

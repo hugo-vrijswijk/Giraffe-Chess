@@ -6,5 +6,6 @@ namespace GiraffeChess.Domain.Domain
 {
     public class BoardTile
     {
+        public ChessPiece Piece { get; set; }
     }
 }

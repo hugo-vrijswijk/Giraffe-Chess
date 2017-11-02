@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Domain", "GiraffeChess.Domain\GiraffeChess.Domain.csproj", "{FAB10969-FE82-4664-9D89-76B420744A8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Service", "GiraffeChess.Service\GiraffeChess.Service.csproj", "{D87EC752-73F2-4849-B548-DEB2013A345E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.DomainService", "GiraffeChess.Service\GiraffeChess.DomainService.csproj", "{D87EC752-73F2-4849-B548-DEB2013A345E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Application", "GiraffeChess.Application\GiraffeChess.Application.csproj", "{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.ApplicationService", "GiraffeChess.Application\GiraffeChess.ApplicationService.csproj", "{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.WebAPI", "GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj", "{63AD4616-601F-4DE6-9B27-F35905F1BC0F}"
 EndProject

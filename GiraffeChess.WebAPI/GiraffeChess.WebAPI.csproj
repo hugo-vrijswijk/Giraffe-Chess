@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GiraffeChess.Application\GiraffeChess.Application.csproj" />
+    <ProjectReference Include="..\GiraffeChess.Application\GiraffeChess.ApplicationService.csproj" />
   </ItemGroup>
 
 </Project>

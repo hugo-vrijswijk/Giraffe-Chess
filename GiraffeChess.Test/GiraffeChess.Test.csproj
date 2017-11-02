@@ -15,10 +15,10 @@
     <PackageReference Include="SpecFlow.MsTest" Version="2.1.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
   </ItemGroup>
-<ItemGroup>
-<DotNetCliToolReference Include="SpecFlow.NetCore" Version="1.0.0" />
-</ItemGroup>
-<Target Name="PrecompileScript" BeforeTargets="BeforeBuild">
-<Exec Command="dotnet SpecFlow.NetCore" />
-</Target>
+  <ItemGroup>
+    <DotNetCliToolReference Include="SpecFlow.NetCore" Version="1.0.0" />
+  </ItemGroup>
+  <Target Name="PrecompileScript" BeforeTargets="BeforeBuild">
+    <Exec Command="dotnet SpecFlow.NetCore" />
+  </Target>
 </Project>
