@@ -6,5 +6,7 @@ namespace GiraffeChess.Domain.Domain
 {
     public class ChessPiece
     {
+        public Side Colour { get; set; }
+
     }
 }

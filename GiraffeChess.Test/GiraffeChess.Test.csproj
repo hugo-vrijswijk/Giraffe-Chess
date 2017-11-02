@@ -18,6 +18,10 @@
   <ItemGroup>
     <DotNetCliToolReference Include="SpecFlow.NetCore" Version="1.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GiraffeChess.DomainService\GiraffeChess.DomainService.csproj" />
+    <ProjectReference Include="..\GiraffeChess.Domain\GiraffeChess.Domain.csproj" />
+  </ItemGroup>
   <Target Name="PrecompileScript" BeforeTargets="BeforeBuild">
     <Exec Command="dotnet SpecFlow.NetCore" />
   </Target>

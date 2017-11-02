@@ -9,7 +9,7 @@ namespace GiraffeChess.Domain.Domain
         private const int boardSize = 8;
         public Side TurnSide { get; set; }
 
-        public BoardTile[,] Tiles { get; } = new BoardTile[boardSize, boardSize];
+        public IDictionary<string, BoardTile> Tiles { get; } = new Dictionary<string, BoardTile>(64);
 
         public Board()
         {
