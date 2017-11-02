@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GiraccheChess.WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ChessController : Controller
     {
         // GET api/values
         [HttpGet]
