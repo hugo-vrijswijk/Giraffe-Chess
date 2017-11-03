@@ -9,6 +9,7 @@ namespace GiraffeChess.ApplicationService.Entities
     {
         public int? Id { get; set; }
         public BoardTile OnTile { get; set; }
+        public Side Colour { get; set; }
         public Piece PieceName { get; set; }
     }
 }

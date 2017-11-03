@@ -12,5 +12,25 @@ namespace GiraffeChess.Domain.Domain
         {
             Position = position;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is BoardTile tile &&
+                   Position == tile.Position &&
+                   EqualityComparer<ChessPiece>.Default.Equals(Piece, tile.Piece);
+        }
+
+        protected bool Equals(BoardTile other)
+        {
+            return string.Equals(Position, other.Position) && Equals(Piece, other.Piece);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((Position != null ? Position.GetHashCode() : 0) * 397) ^ (Piece != null ? Piece.GetHashCode() : 0);
+            }
+        }
     }
 }

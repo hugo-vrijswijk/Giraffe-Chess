@@ -10,7 +10,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
-    <PackageReference Include="Selenium.WebDriver" Version="3.6.0" />
     <PackageReference Include="SpecFlow" Version="2.1.0" />
     <PackageReference Include="SpecFlow.MsTest" Version="2.1.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
@@ -21,6 +20,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\GiraffeChess.Application\GiraffeChess.ApplicationService.csproj" />
     <ProjectReference Include="..\GiraffeChess.DomainService\GiraffeChess.DomainService.csproj" />
     <ProjectReference Include="..\GiraffeChess.Domain\GiraffeChess.Domain.csproj" />
   </ItemGroup>
