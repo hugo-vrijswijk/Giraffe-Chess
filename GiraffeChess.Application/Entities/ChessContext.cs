@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace GiraffeChess.ApplicationService.Entities
 {
-    class ChessContext
+    public class ChessContext : DbContext
     {
+        public DbSet<Board> Boards { get; set; }
+        public DbSet<BoardTile> Tiles { get; set; }
+        public DbSet<ChessPiece> Pieces { get; set; }
+        public ChessContext(DbContextOptions options) : base(options)
+        {
+            
+        }
     }
 }

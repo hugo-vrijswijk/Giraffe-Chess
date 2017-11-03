@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GiraffeChess.Domain.Domain;
 
 namespace GiraffeChess.ApplicationService.Entities
 {
-    class Board
+    public class Board
     {
+        public int? Id { get; set; }
+        public Side Turn { get; set; }
+        public List<BoardTile> Tiles { get; set; }
     }
 }
