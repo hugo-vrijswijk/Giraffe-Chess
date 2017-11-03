@@ -16,7 +16,7 @@ Scenario: Set chesspieces on proper place
 	Then On each place a piece with the right colour should be set
 	| Place | Piece | Colour |
 	| A1    | Rook  | White  |
-	| A2    | Knigh | White  |
+	| A2    | Knight| White  |
 	| A3    | Bishop| White  |
 	| A4    | Queen | White  |
 	| A5    | King  | White  |

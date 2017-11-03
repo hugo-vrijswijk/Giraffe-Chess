@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GiraffeChess.ApplicationService.Entities;
+using GiraffeChess.ApplicationService.Mapper;
+using GiraffeChess.ApplicationService.Repository;
+using GiraffeChess.DomainService;
+using GiraffeChess.DomainService.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
-namespace GiraccheChess.WebAPI
+namespace GiraffeChess.WebAPI
 {
     public class Startup
     {
@@ -24,6 +24,11 @@ namespace GiraccheChess.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             var dbConn = Configuration.GetConnectionString("DbConn");
+            services.AddDbContext<ChessContext>(options => options.UseSqlServer(dbConn),
+                ServiceLifetime.Scoped, ServiceLifetime.Singleton);
+            services.AddTransient<BoardMapper>();
+            services.AddTransient<IBoardRepository, BoardRepository>();
+            services.AddTransient<IGameService, GameService>();
             services.AddMvc();
         }
 

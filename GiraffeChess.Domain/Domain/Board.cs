@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace GiraffeChess.Domain.Domain
 {
     public class Board
     {
-        private const int boardSize = 8;
+        private const int BoardSize = 64;
 
         public int? Id { get; set; }
         public Side TurnSide { get; }
-        public IDictionary<string, BoardTile> Tiles { get; } = new Dictionary<string, BoardTile>(64);
+        public IDictionary<string, BoardTile> Tiles { get; } = new Dictionary<string, BoardTile>(BoardSize);
 
         public Board()
         {

@@ -1,8 +1,7 @@
 using GiraffeChess.Domain.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace GiraffeChess.Test
+namespace GiraffeChess.Test.Unit.Domain
 {
     [TestClass]
     public class BoardTest
@@ -12,7 +11,7 @@ namespace GiraffeChess.Test
         {
             var sut = new Board();
             
-            AreEqual(64, sut.Tiles.Count);
+            Assert.AreEqual(64, sut.Tiles.Count);
         }
 
         [TestMethod]
@@ -20,13 +19,13 @@ namespace GiraffeChess.Test
         {
             var sut = new Board();
 
-            AreEqual(Side.White, sut.TurnSide);
+            Assert.AreEqual(Side.White, sut.TurnSide);
         }
 
         [TestMethod]
         public void MovePiece_GivenNewBoard_ShouldMove()
         {
-            Fail("TODO");
+            Assert.Fail("TODO");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Domain", "GiraffeChess.Domain\GiraffeChess.Domain.csproj", "{FAB10969-FE82-4664-9D89-76B420744A8F}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.WebAPI", "GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj", "{63AD4616-601F-4DE6-9B27-F35905F1BC0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Test", "GiraffeChess.Test\GiraffeChess.Test.csproj", "{A6AC7A0F-BA73-46A2-AB54-17E6EAE5A4E7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiraffeChess.Infrastructure", "GiraffeChess.Infrastructure\GiraffeChess.Infrastructure.csproj", "{F18A2040-E048-4D24-B2DF-6F75C1698667}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.DomainService", "GiraffeChess.DomainService\GiraffeChess.DomainService.csproj", "{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}"
 EndProject
@@ -37,10 +35,6 @@ Global
 		{A6AC7A0F-BA73-46A2-AB54-17E6EAE5A4E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6AC7A0F-BA73-46A2-AB54-17E6EAE5A4E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6AC7A0F-BA73-46A2-AB54-17E6EAE5A4E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F18A2040-E048-4D24-B2DF-6F75C1698667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F18A2040-E048-4D24-B2DF-6F75C1698667}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F18A2040-E048-4D24-B2DF-6F75C1698667}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F18A2040-E048-4D24-B2DF-6F75C1698667}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU

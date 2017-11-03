@@ -1,16 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GiraffeChess.Domain.Domain;
 using GiraffeChess.DomainService.Service;
-using GiraffeChess.Domain.Domain;
 using GiraffeChess.Test.Unit.Mock;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace GiraffeChess.Test.Unit
+namespace GiraffeChess.Test.Unit.DomainService
 {
     [TestClass]
-    class BoardServiceTest
+    public class BoardServiceTest
     {
         [TestMethod]
         public void NewGame_ShouldReturnNewBoardWithId1()
@@ -20,7 +16,7 @@ namespace GiraffeChess.Test.Unit
             var actual = sut.NewGame();
 
             var expected = new Board { Id = 1 };
-            AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

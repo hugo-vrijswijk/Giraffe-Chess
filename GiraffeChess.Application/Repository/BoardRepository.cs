@@ -1,24 +1,29 @@
 ﻿using System;
-using GiraffeChess.Domain.Domain;
+using GiraffeChess.ApplicationService.Entities;
+using GiraffeChess.ApplicationService.Mapper;
 using GiraffeChess.DomainService;
-using GiraffeChess.Infrastructure;
+using Board = GiraffeChess.Domain.Domain.Board;
 
-namespace GiraffeChess.ApplicationService
+namespace GiraffeChess.ApplicationService.Repository
 {
     public class BoardRepository : IBoardRepository
     {
         private ChessContext Context { get; }
+        private BoardMapper BoardMapper { get; }
 
-        public BoardRepository(ChessContext context)
+        public BoardRepository(ChessContext context, BoardMapper boardMapper)
         {
             Context = context;
+            BoardMapper = boardMapper;
         }
 
         public Board Add(Board board)
         {
-            //Context.Boards.Add(board);
+            var entity = BoardMapper.ToEntity(board);
+            Context.Boards.Add(entity);
             Context.SaveChanges();
-            throw new NotImplementedException();
+
+            return BoardMapper.FromEntity(entity);
         }
     }
 }

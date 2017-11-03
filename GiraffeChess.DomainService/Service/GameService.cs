@@ -1,5 +1,4 @@
 ﻿using GiraffeChess.Domain.Domain;
-using GiraffeChess.DomainService.Mapper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,17 +7,17 @@ namespace GiraffeChess.DomainService.Service
 {
     public class GameService : IGameService
     {
-        private readonly IBoardRepository boardRepository;
+        private readonly IBoardRepository _boardRepository;
 
         public GameService(IBoardRepository boardRepository)
         {
-            this.boardRepository = boardRepository;
+            _boardRepository = boardRepository;
         }
 
         public Board NewGame()
         {
             var board = new Board();
-            return boardRepository.Add(board);
+            return _boardRepository.Add(board);
         }
     }
 }
