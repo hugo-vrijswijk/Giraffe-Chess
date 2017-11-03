@@ -7,6 +7,6 @@ namespace GiraffeChess.DomainService
 {
     public interface IBoardRepository
     {
-        Board NewGame();
+        Board Add(Board board);
     }
 }

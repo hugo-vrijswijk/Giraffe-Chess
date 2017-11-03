@@ -17,7 +17,8 @@ namespace GiraffeChess.DomainService.Service
 
         public Board NewGame()
         {
-            return boardRepository.NewGame();
+            var board = new Board();
+            return boardRepository.Add(board);
         }
     }
 }

@@ -6,11 +6,11 @@ using GiraffeChess.Domain.Domain;
 
 namespace GiraffeChess.Test.Unit.Mock
 {
-    class MockBoardRepository : IBoardRepository
+    public class MockBoardRepository : IBoardRepository
     {
-        public Board NewGame()
+        public Board Add(Board board)
         {
-            return new Board { Id = 1 };
+            throw new NotImplementedException();
         }
     }
 }
