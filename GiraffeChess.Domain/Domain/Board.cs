@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
 namespace GiraffeChess.Domain.Domain
 {
     public class Board
     {
         private static readonly string[] Columns = { "A", "B", "C", "D", "E", "F", "G", "H" };
+        private static readonly int[] AllowedRows = { 1, 2, 7,8 };
+        private static readonly Piece[] ChessPreset = { Piece.Rook, Piece.Knight, Piece.Bishop, Piece.King, Piece.Queen, Piece.Bishop, Piece.Knight, Piece.Rook };
         private const int BoardSize = 8;
-
         public int? Id { get; set; }
         public Side TurnSide { get; set; }
         public IDictionary<string, BoardTile> Tiles { get; } = new Dictionary<string, BoardTile>(BoardSize * BoardSize);
@@ -16,6 +17,15 @@ namespace GiraffeChess.Domain.Domain
         /// </summary>
         public Board()
         {
+            InitializeBoard();
+            SetupChessPieces();  
+        }
+
+        /// <summary>
+        /// Set all the tiles to create a board.
+        /// </summary>
+        private void InitializeBoard()
+        {
             for (var x = 1; x <= BoardSize; x++)
             {
                 for (var y = 0; y < BoardSize; y++)
@@ -24,14 +34,47 @@ namespace GiraffeChess.Domain.Domain
                     Tiles.Add(tileName, new BoardTile(tileName));
                 }
             }
-            var keys = new List<string>(Tiles.Keys);
-            foreach (string key in keys)
-            {
-                //TODO Fill board with the right pieces for now fill with all the pieces.
-                Tiles[key].Piece = new ChessPiece(Piece.Bishop, Side.Black);
-            }
-            
         }
+
+        /// <summary>
+        /// Setup the chess pieces at the board from a prefab for both sides.
+        /// </summary>
+        private void SetupChessPieces()
+        {
+            var columnsKeys = new List<string>(Tiles.Keys);
+            var chessPieceIndex = 0;
+
+            foreach (string key in columnsKeys)
+            {
+                var rowNumber = int.Parse(key.Substring(1));
+                var allowedRow = AllowedRows.Contains(rowNumber);
+                if (chessPieceIndex >= 8)
+                {
+                    chessPieceIndex = 0;
+                }
+
+                if (allowedRow)
+                {
+                    Side side = Side.White;
+                    Piece chosenPiece = ChessPreset[chessPieceIndex];
+
+                    if (rowNumber > 3)
+                    {
+                        side = Side.Black;
+                    }
+                    else if (rowNumber == 2 || rowNumber == 7)
+                    {
+                        chosenPiece = Piece.Pawn;
+                    }
+
+                    ChessPiece piece = new ChessPiece(chosenPiece, side);
+                    Tiles[key].Piece = piece;
+                    chessPieceIndex++;
+                }
+
+            }
+        }
+
         /// <summary>
         /// Set the tile(s) on the right position.
         /// </summary>
