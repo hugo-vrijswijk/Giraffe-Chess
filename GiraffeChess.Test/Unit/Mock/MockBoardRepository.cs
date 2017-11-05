@@ -1,16 +1,39 @@
 ﻿using GiraffeChess.DomainService;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using GiraffeChess.Domain.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace GiraffeChess.Test.Unit.Mock
 {
     public class MockBoardRepository : IBoardRepository
     {
-        public Board Add(Board board)
+        public GiraffeChess.ApplicationService.Entities.ChessContext Context { get; }
+        public DbContextOptions Options { get; } =
+        new DbContextOptionsBuilder()
+        .UseInMemoryDatabase("Boardinmemory")
+        .Options;
+        private GiraffeChess.ApplicationService.Mapper.BoardMapper BoardMapper { get; }
+
+        public MockBoardRepository()
         {
-            throw new NotImplementedException();
+            Context = new GiraffeChess.ApplicationService.Entities.ChessContext(Options);
+            BoardMapper = new GiraffeChess.ApplicationService.Mapper.BoardMapper();
         }
+        public GiraffeChess.Domain.Domain.Board Add(GiraffeChess.Domain.Domain.Board board)
+        {
+            var entity = BoardMapper.ToEntity(board);
+            Context.Boards.Add(entity);
+            Context.SaveChanges();
+
+            return BoardMapper.FromEntity(entity);
+        }
+        public void InitializeDB()
+        {
+            using (var context = Context)
+            {
+
+                context.Database.EnsureCreated();
+            }
+        }
+
     }
 }
