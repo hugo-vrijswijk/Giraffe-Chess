@@ -6,7 +6,6 @@ namespace GiraffeChess.Test.Unit.Mock
 {
     public class MockBoardRepository : IBoardRepository
     {
-        public GiraffeChess.ApplicationService.Entities.ChessContext Context { get; }
         public DbContextOptions Options { get; } =
         new DbContextOptionsBuilder()
         .UseInMemoryDatabase("Boardinmemory")
@@ -15,20 +14,32 @@ namespace GiraffeChess.Test.Unit.Mock
 
         public MockBoardRepository()
         {
-            Context = new GiraffeChess.ApplicationService.Entities.ChessContext(Options);
             BoardMapper = new GiraffeChess.ApplicationService.Mapper.BoardMapper();
+            InitializeDB();
         }
+        /// <summary>
+        /// Add a new board to the database.
+        /// </summary>
+        /// <param name="board">Domain board</param>
+        /// <returns></returns>
         public GiraffeChess.Domain.Domain.Board Add(GiraffeChess.Domain.Domain.Board board)
         {
             var entity = BoardMapper.ToEntity(board);
-            Context.Boards.Add(entity);
-            Context.SaveChanges();
+            using (var context = new GiraffeChess.ApplicationService.Entities.ChessContext(Options))
+            {
+                context.Boards.Add(entity);
+                context.SaveChanges();
+
+            }
 
             return BoardMapper.FromEntity(entity);
         }
+        /// <summary>
+        /// Create a new database to mock later.
+        /// </summary>
         public void InitializeDB()
         {
-            using (var context = Context)
+            using (var context = new GiraffeChess.ApplicationService.Entities.ChessContext(Options) )
             {
 
                 context.Database.EnsureCreated();

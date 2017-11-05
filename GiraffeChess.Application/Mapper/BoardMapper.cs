@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GiraffeChess.Domain.Domain;
-
+using System.Linq;
 namespace GiraffeChess.ApplicationService.Mapper
 {
     public class BoardMapper
@@ -25,7 +25,29 @@ namespace GiraffeChess.ApplicationService.Mapper
 
         public Entities.Board ToEntity(Board board)
         {
-            throw new NotImplementedException();
+            Entities.Board entity = new Entities.Board
+            {
+                Id = board.Id,
+                Turn = board.TurnSide,
+                
+            };
+            foreach (var tile in board.Tiles)
+            {
+                var position = tile.Value.Position;
+                var piece = tile.Value.Piece;
+                Entities.BoardTile boardTile = new Entities.BoardTile
+                {
+                    Position = position,
+                    
+                };
+
+                var pieceToAdd = piece == null ? null : new GiraffeChess.ApplicationService.Entities.ChessPiece(boardTile, piece.PieceName, piece.Colour);
+                entity.SetTile(position, pieceToAdd);
+            }
+            return entity;
+
         }
+
     }
 }
+

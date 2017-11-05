@@ -10,5 +10,20 @@ namespace GiraffeChess.ApplicationService.Entities
         public int? Id { get; set; }
         public Side Turn { get; set; }
         public List<BoardTile> Tiles { get; set; }
+
+        public Board()
+        {
+            Tiles = new List<BoardTile>();
+        }
+
+        internal void SetTile(string position, Entities.ChessPiece pieceToAdd)
+        {
+            BoardTile tile = new BoardTile
+            {
+                ChessPiece = pieceToAdd,
+                Position = position
+            };
+            Tiles.Add(tile);
+        }
     }
 }

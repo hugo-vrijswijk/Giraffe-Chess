@@ -11,12 +11,12 @@ namespace GiraffeChess.Test.Unit.DomainService
         [TestMethod]
         public void NewGame_ShouldReturnNewBoardWithId1()
         {
-            var sut = new GameService(new MockBoardRepository());
+            var mockRepo = new MockBoardRepository();
+            var sut = new GameService(mockRepo);
 
-            var actual = sut.NewGame();
-
-            var expected = new Board { Id = 1 };
-            Assert.AreEqual(expected, actual);
+            var result = sut.NewGame().Id;
+            var expected = 1;
+            Assert.AreEqual(expected,result);
         }
     }
 }

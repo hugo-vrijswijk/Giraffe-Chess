@@ -11,6 +11,9 @@ namespace GiraffeChess.Domain.Domain
         public Side TurnSide { get; set; }
         public IDictionary<string, BoardTile> Tiles { get; } = new Dictionary<string, BoardTile>(BoardSize * BoardSize);
 
+        /// <summary>
+        /// Create a domain board with all the chess pieces for the start.
+        /// </summary>
         public Board()
         {
             for (var x = 1; x <= BoardSize; x++)
@@ -21,9 +24,19 @@ namespace GiraffeChess.Domain.Domain
                     Tiles.Add(tileName, new BoardTile(tileName));
                 }
             }
-            // TODO: Fill board with pieces
+            var keys = new List<string>(Tiles.Keys);
+            foreach (string key in keys)
+            {
+                //TODO Fill board with the right pieces for now fill with all the pieces.
+                Tiles[key].Piece = new ChessPiece(Piece.Bishop, Side.Black);
+            }
+            
         }
-
+        /// <summary>
+        /// Set the tile(s) on the right position.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="piece"></param>
         public void SetTile(string position, ChessPiece piece)
         {
             var tile = Tiles[position];
