@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GiraffeChess.ApplicationService.Mapper
+{
+    public class ChessPieceMapper
+    {
+
+    }
+}
