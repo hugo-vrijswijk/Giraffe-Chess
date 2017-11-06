@@ -21,9 +21,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\GiraffeChess.Application\GiraffeChess.ApplicationService.csproj" />
     <ProjectReference Include="..\GiraffeChess.DomainService\GiraffeChess.DomainService.csproj" />
     <ProjectReference Include="..\GiraffeChess.Domain\GiraffeChess.Domain.csproj" />
+    <ProjectReference Include="..\GiraffeChess.Infrastructure\GiraffeChess.Infrastructure.csproj" />
   </ItemGroup>
   
   <Target Name="PrecompileScript" BeforeTargets="BeforeBuild">

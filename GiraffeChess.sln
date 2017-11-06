@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Domain", "GiraffeChess.Domain\GiraffeChess.Domain.csproj", "{FAB10969-FE82-4664-9D89-76B420744A8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.ApplicationService", "GiraffeChess.Application\GiraffeChess.ApplicationService.csproj", "{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.WebAPI", "GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj", "{63AD4616-601F-4DE6-9B27-F35905F1BC0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Test", "GiraffeChess.Test\GiraffeChess.Test.csproj", "{A6AC7A0F-BA73-46A2-AB54-17E6EAE5A4E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.DomainService", "GiraffeChess.DomainService\GiraffeChess.DomainService.csproj", "{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Infrastructure", "GiraffeChess.Infrastructure\GiraffeChess.Infrastructure.csproj", "{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{FAB10969-FE82-4664-9D89-76B420744A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAB10969-FE82-4664-9D89-76B420744A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAB10969-FE82-4664-9D89-76B420744A8F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DFCBF0F-41DB-42FD-AF9D-39CA1B67175B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{63AD4616-601F-4DE6-9B27-F35905F1BC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{63AD4616-601F-4DE6-9B27-F35905F1BC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63AD4616-601F-4DE6-9B27-F35905F1BC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
