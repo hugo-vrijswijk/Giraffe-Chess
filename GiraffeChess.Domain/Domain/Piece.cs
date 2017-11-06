@@ -6,6 +6,7 @@ namespace GiraffeChess.Domain.Domain
 {
     public enum Piece
     {
+        Empty,
         Pawn,
         Rook,
         Knight,

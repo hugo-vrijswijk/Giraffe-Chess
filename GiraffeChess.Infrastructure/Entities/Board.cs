@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using GiraffeChess.Domain.Domain;
+using BoardTile = GiraffeChess.Infrastructure.Entities.BoardTile;
 
-namespace GiraffeChess.ApplicationService.Entities
+namespace GiraffeChess.Infrastructure.Entities
 {
     public class Board
     {
@@ -16,7 +15,7 @@ namespace GiraffeChess.ApplicationService.Entities
             Tiles = new List<BoardTile>();
         }
 
-        internal void SetTile(string position, Entities.ChessPiece pieceToAdd)
+        internal void SetTile(string position, ChessPiece pieceToAdd)
         {
             BoardTile tile = new BoardTile
             {

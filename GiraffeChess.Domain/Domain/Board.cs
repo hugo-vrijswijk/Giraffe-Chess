@@ -87,6 +87,14 @@ namespace GiraffeChess.Domain.Domain
             Tiles[position] = tile;
         }
 
+        public void Move(string from, string to)
+        {
+            var tileFrom = Tiles[from];
+            SetTile(from, null);
+            SetTile(to, tileFrom.Piece);
+            
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Board board &&
@@ -105,6 +113,5 @@ namespace GiraffeChess.Domain.Domain
                 return hashCode;
             }
         }
-
     }
 }

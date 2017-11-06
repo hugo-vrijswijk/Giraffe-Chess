@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using GiraffeChess.DomainService.Command;
 
 namespace GiraffeChess.DomainService.Service
 {
@@ -18,6 +19,14 @@ namespace GiraffeChess.DomainService.Service
         {
             var board = new Board();
             return _boardRepository.Add(board);
+        }
+
+        public Board Move(MoveCommand command)
+        {
+            var board = _boardRepository.Get(command.BoardId);
+            board.Move(command.From, command.To);
+            _boardRepository.Save(board);
+            return board;
         }
     }
 }

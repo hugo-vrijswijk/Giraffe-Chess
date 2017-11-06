@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using GiraffeChess.Domain.Domain;
+﻿using GiraffeChess.Domain.Domain;
 
-namespace GiraffeChess.ApplicationService.Entities
+namespace GiraffeChess.Infrastructure.Entities
 {
     public class ChessPiece
     {
 
-        public ChessPiece(Entities.BoardTile tile, Piece pieceName, Side colour)
+        public ChessPiece(BoardTile tile, Piece pieceName, Side colour)
         {
             OnTile = tile ;
             PieceName = pieceName;

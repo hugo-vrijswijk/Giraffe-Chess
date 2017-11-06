@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GiraffeChess.ApplicationService.Mapper;
 using GiraffeChess.Domain.Domain;
+using GiraffeChess.Infrastructure.Mapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Board = GiraffeChess.Domain.Domain.Board;
-using Entity = GiraffeChess.ApplicationService.Entities;
+using BoardTile = GiraffeChess.Infrastructure.Entities.BoardTile;
 
 namespace GiraffeChess.Test.Unit.ApplicationService
 {
@@ -16,7 +16,7 @@ namespace GiraffeChess.Test.Unit.ApplicationService
         {
             var sut = new BoardMapper();
 
-            var board = new Entity.Board() {Turn = Side.Black, Id = 1, Tiles = new List<Entity.BoardTile>(64)};
+            var board = new Infrastructure.Entities.Board() {Turn = Side.Black, Id = 1, Tiles = new List<BoardTile>(64)};
             var result = sut.FromEntity(board);
 
             var expected = new Board() { TurnSide = Side.Black, Id = 1};

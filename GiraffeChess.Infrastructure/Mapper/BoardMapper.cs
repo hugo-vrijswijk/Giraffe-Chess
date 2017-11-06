@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using GiraffeChess.Domain.Domain;
-using System.Linq;
-namespace GiraffeChess.ApplicationService.Mapper
+﻿using GiraffeChess.Domain.Domain;
+
+namespace GiraffeChess.Infrastructure.Mapper
 {
     public class BoardMapper
     {
@@ -41,7 +39,7 @@ namespace GiraffeChess.ApplicationService.Mapper
                     
                 };
 
-                var pieceToAdd = piece == null ? null : new GiraffeChess.ApplicationService.Entities.ChessPiece(boardTile, piece.PieceName, piece.Colour);
+                var pieceToAdd = piece == null ? null : new Entities.ChessPiece(boardTile, piece.PieceName, piece.Colour);
                 entity.SetTile(position, pieceToAdd);
             }
             return entity;

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GiraffeChess.ApplicationService.Mapper
+﻿namespace GiraffeChess.Infrastructure.Mapper
 {
     public class ChessPieceMapper
     {
