@@ -26,7 +26,11 @@ namespace GiraffeChess.WebAPI
             var dbConn = Configuration.GetConnectionString("DbConn");
             services.AddDbContext<ChessContext>(options => options.UseSqlServer(dbConn),
                 ServiceLifetime.Transient, ServiceLifetime.Singleton);
+
             services.AddTransient<BoardMapper>();
+            services.AddTransient<BoardTileMapper>();
+            services.AddTransient<ChessPieceMapper>();
+
             services.AddTransient<IBoardRepository, BoardRepository>();
             services.AddTransient<IGameService, GameService>();
             services.AddMvc();

@@ -13,7 +13,7 @@ namespace GiraffeChess.Test.Unit.ApplicationService
         [TestMethod]
         public void FromEntity_ShouldHaveAllProperties()
         {
-            var sut = new BoardMapper();
+            var sut = new BoardMapper(new BoardTileMapper(new ChessPieceMapper()));
             var board = new Entities.Board() {Turn = Side.Black, Id = 1, Tiles = new List<Entities.BoardTile>(64)};
 
             var result = sut.FromEntity(board);
@@ -30,7 +30,7 @@ namespace GiraffeChess.Test.Unit.ApplicationService
         [TestMethod]
         public void ToEntity_ShouldHaveAllProperties()
         {
-            var sut = new BoardMapper();
+            var sut = new BoardMapper(new BoardTileMapper(new ChessPieceMapper()));
             var board = new Board()
             {
                 Id = 2,
@@ -42,8 +42,8 @@ namespace GiraffeChess.Test.Unit.ApplicationService
 
             Assert.AreEqual(2, actual.Id);
             Assert.AreEqual(Side.Black, actual.Turn);
-            var expectedPiece = new Entities.ChessPiece(Piece.Bishop, Side.Black);
             var actualPiece = actual.Tiles.First(tile => tile.Position.Equals("C1")).ChessPiece;
+            var expectedPiece = new Entities.ChessPiece(Piece.Bishop, Side.Black) { OnTile = actualPiece.OnTile };
             Assert.AreEqual(expectedPiece, actualPiece);
         }
     }

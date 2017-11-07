@@ -17,7 +17,7 @@ namespace GiraffeChess.Test.Unit.Mock
 
         public MockBoardRepository()
         {
-            BoardMapper = new BoardMapper();
+            BoardMapper = new BoardMapper(new BoardTileMapper(new ChessPieceMapper()));
             InitializeDB();
         }
         /// <summary>
