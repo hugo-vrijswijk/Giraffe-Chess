@@ -3,8 +3,7 @@ using System.Linq;
 using GiraffeChess.Domain.Domain;
 using GiraffeChess.Infrastructure.Mapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Board = GiraffeChess.Domain.Domain.Board;
-using BoardTile = GiraffeChess.Infrastructure.Entities.BoardTile;
+using Entities = GiraffeChess.Infrastructure.Entities;
 
 namespace GiraffeChess.Test.Unit.ApplicationService
 {
@@ -15,18 +14,37 @@ namespace GiraffeChess.Test.Unit.ApplicationService
         public void FromEntity_ShouldHaveAllProperties()
         {
             var sut = new BoardMapper();
+            var board = new Entities.Board() {Turn = Side.Black, Id = 1, Tiles = new List<Entities.BoardTile>(64)};
 
-            var board = new Infrastructure.Entities.Board() {Turn = Side.Black, Id = 1, Tiles = new List<BoardTile>(64)};
             var result = sut.FromEntity(board);
 
-            var expected = new Board() { TurnSide = Side.Black, Id = 1};
+            var expected = new Board { TurnSide = Side.Black, Id = 1};
             Assert.AreEqual(result.Id, expected.Id);
             Assert.AreEqual(result.TurnSide, expected.TurnSide);
-
             foreach (var tilePair in result.Tiles)
             {
                 Assert.AreEqual(tilePair.Value, expected.Tiles[tilePair.Key]);
             }
+        }
+
+        [TestMethod]
+        public void ToEntity_ShouldHaveAllProperties()
+        {
+            var sut = new BoardMapper();
+            var board = new Board()
+            {
+                Id = 2,
+                TurnSide = Side.Black
+            };
+            board.SetTile("C1", new ChessPiece(Piece.Bishop, Side.Black));
+
+            var actual = sut.ToEntity(board);
+
+            Assert.AreEqual(2, actual.Id);
+            Assert.AreEqual(Side.Black, actual.Turn);
+            var expectedPiece = new Entities.ChessPiece(Piece.Bishop, Side.Black);
+            var actualPiece = actual.Tiles.First(tile => tile.Position.Equals("C1")).ChessPiece;
+            Assert.AreEqual(expectedPiece, actualPiece);
         }
     }
 }

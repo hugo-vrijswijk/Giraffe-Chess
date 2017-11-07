@@ -1,5 +1,6 @@
 using GiraffeChess.Domain.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechTalk.SpecFlow;
 
 namespace GiraffeChess.Test.Unit.Domain
 {

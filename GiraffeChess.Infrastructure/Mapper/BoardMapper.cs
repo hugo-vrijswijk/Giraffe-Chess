@@ -39,7 +39,7 @@ namespace GiraffeChess.Infrastructure.Mapper
                     
                 };
 
-                var pieceToAdd = piece == null ? null : new Entities.ChessPiece(boardTile, piece.PieceName, piece.Colour);
+                var pieceToAdd = piece == null ? null : new Entities.ChessPiece(piece.PieceName, piece.Colour);
                 entity.SetTile(position, pieceToAdd);
             }
             return entity;
