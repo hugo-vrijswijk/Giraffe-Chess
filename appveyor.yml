@@ -19,4 +19,4 @@ before_test:
 - ps: dotnet build
 
 cache:
-- '%USERPROFILE%\.nuget\packages'
+- '%USERPROFILE%\.nuget\packages -> **\*.csproj'  # Cache NuGet packages unless .csproj changed
