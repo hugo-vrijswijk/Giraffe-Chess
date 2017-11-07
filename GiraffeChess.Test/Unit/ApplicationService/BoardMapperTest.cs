@@ -15,10 +15,16 @@ namespace GiraffeChess.Test.Unit.ApplicationService
         {
             var sut = new BoardMapper(new BoardTileMapper(new ChessPieceMapper()));
             var board = new Entities.Board() {Turn = Side.Black, Id = 1, Tiles = new List<Entities.BoardTile>(64)};
-
+            board.Tiles.Add(new Entities.BoardTile()
+            {
+                Id = 3, 
+                Position = "A1",
+                ChessPiece = new Entities.ChessPiece(Piece.Rook, Side.White)
+            });
             var result = sut.FromEntity(board);
 
             var expected = new Board { TurnSide = Side.Black, Id = 1};
+            expected.SetTile("A1", new ChessPiece(Piece.Rook, Side.White));
             Assert.AreEqual(result.Id, expected.Id);
             Assert.AreEqual(result.TurnSide, expected.TurnSide);
             foreach (var tilePair in result.Tiles)
