@@ -10,13 +10,14 @@ namespace GiraffeChess.Domain.Domain
         private const int BoardSize = 8;
         public int? Id { get; set; }
         public Side TurnSide { get; set; }
-        public IDictionary<string, BoardTile> Tiles { get; } = new Dictionary<string, BoardTile>(BoardSize * BoardSize);
+        public IDictionary<string, BoardTile> Tiles { get; }
 
         /// <summary>
         /// Create a domain board with all the chess pieces for the start.
         /// </summary>
         public Board()
         {
+            Tiles = new Dictionary<string, BoardTile>(BoardSize * BoardSize);
             InitializeBoard();
             SetupChessPieces();  
         }
