@@ -22,11 +22,6 @@ namespace GiraffeChess.Domain.Domain
                    PieceName == piece.PieceName;
         }
 
-        protected bool Equals(ChessPiece other)
-        {
-            return Colour == other.Colour && PieceName == other.PieceName;
-        }
-
         public override int GetHashCode()
         {
             unchecked

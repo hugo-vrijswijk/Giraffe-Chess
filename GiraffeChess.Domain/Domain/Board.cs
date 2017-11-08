@@ -83,9 +83,15 @@ namespace GiraffeChess.Domain.Domain
         /// <param name="piece"></param>
         public void SetTile(string position, ChessPiece piece)
         {
-            var tile = Tiles[position];
-            tile.Piece = piece;
-            Tiles[position] = tile;
+            Tiles[position].Piece = piece;
+        }
+
+        public void Move(string from, string to)
+        {
+            var tileFrom = Tiles[from].Piece;
+            SetTile(from, null);
+            SetTile(to, tileFrom);
+            
         }
 
         public override bool Equals(object obj)
@@ -106,6 +112,5 @@ namespace GiraffeChess.Domain.Domain
                 return hashCode;
             }
         }
-
     }
 }

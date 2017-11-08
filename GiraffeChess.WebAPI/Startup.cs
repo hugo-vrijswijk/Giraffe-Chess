@@ -1,8 +1,8 @@
-﻿using GiraffeChess.ApplicationService.Entities;
-using GiraffeChess.ApplicationService.Mapper;
-using GiraffeChess.ApplicationService.Repository;
-using GiraffeChess.DomainService;
+﻿using GiraffeChess.DomainService;
 using GiraffeChess.DomainService.Service;
+using GiraffeChess.Infrastructure.Entities;
+using GiraffeChess.Infrastructure.Mapper;
+using GiraffeChess.Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,8 +25,12 @@ namespace GiraffeChess.WebAPI
         {
             var dbConn = Configuration.GetConnectionString("DbConn");
             services.AddDbContext<ChessContext>(options => options.UseSqlServer(dbConn),
-                ServiceLifetime.Scoped, ServiceLifetime.Singleton);
+                ServiceLifetime.Transient, ServiceLifetime.Singleton);
+
             services.AddTransient<BoardMapper>();
+            services.AddTransient<BoardTileMapper>();
+            services.AddTransient<ChessPieceMapper>();
+
             services.AddTransient<IBoardRepository, BoardRepository>();
             services.AddTransient<IGameService, GameService>();
             services.AddMvc();
@@ -40,6 +44,12 @@ namespace GiraffeChess.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            using (var context = app.ApplicationServices.GetService<ChessContext>())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+            }
+                
             app.UseMvc();
         }
     }

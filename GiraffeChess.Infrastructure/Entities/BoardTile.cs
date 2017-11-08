@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GiraffeChess.ApplicationService.Entities
+﻿namespace GiraffeChess.Infrastructure.Entities
 {
     public class BoardTile
     {

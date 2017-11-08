@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GiraffeChess.DomainService.Command;
 using GiraffeChess.DomainService.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,5 +24,13 @@ namespace GiraffeChess.WebAPI.Controllers
         {
             return Ok(GameService.NewGame());
         }
+
+        [HttpPost]
+        public IActionResult Move([FromBody] MoveCommand command)
+        {
+            return Ok(GameService.Move(command));
+        }
+
+
     }
 }

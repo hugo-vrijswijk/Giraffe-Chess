@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace GiraffeChess.ApplicationService.Entities
+namespace GiraffeChess.Infrastructure.Entities
 {
     public class ChessContext : DbContext
     {
