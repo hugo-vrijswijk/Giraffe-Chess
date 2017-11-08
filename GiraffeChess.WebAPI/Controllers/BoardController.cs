@@ -13,6 +13,7 @@ namespace GiraffeChess.WebAPI.Controllers
     [Route("[controller]")]
     public class BoardController : Controller
     {
+        private static readonly string controllerName = nameof(BoardController).Replace("Controller", string.Empty).ToLower();
         private IGameService GameService { get; }
 
         public BoardController(IGameService gameService)
@@ -22,7 +23,8 @@ namespace GiraffeChess.WebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(GameService.NewGame());
+            var board = GameService.NewGame();
+            return Created($"{controllerName}/{board.Id}", GameService.NewGame());
         }
 
         [HttpPost]

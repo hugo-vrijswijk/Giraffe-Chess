@@ -25,6 +25,7 @@
     <ProjectReference Include="..\GiraffeChess.DomainService\GiraffeChess.DomainService.csproj" />
     <ProjectReference Include="..\GiraffeChess.Domain\GiraffeChess.Domain.csproj" />
     <ProjectReference Include="..\GiraffeChess.Infrastructure\GiraffeChess.Infrastructure.csproj" />
+    <ProjectReference Include="..\GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj" />
   </ItemGroup>
   
   <Target Name="PrecompileScript" BeforeTargets="BeforeBuild">

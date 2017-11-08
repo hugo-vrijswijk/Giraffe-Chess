@@ -5,7 +5,7 @@ namespace GiraffeChess.Domain.Domain
     public class Board
     {
         private static readonly string[] Columns = { "A", "B", "C", "D", "E", "F", "G", "H" };
-        private static readonly int[] AllowedRows = { 1, 2, 7,8 };
+        private static readonly int[] AllowedRows = { 1, 2, 7, 8 };
         private static readonly Piece[] ChessPreset = { Piece.Rook, Piece.Knight, Piece.Bishop, Piece.King, Piece.Queen, Piece.Bishop, Piece.Knight, Piece.Rook };
         private const int BoardSize = 8;
         public int? Id { get; set; }
@@ -19,7 +19,7 @@ namespace GiraffeChess.Domain.Domain
         {
             Tiles = new Dictionary<string, BoardTile>(BoardSize * BoardSize);
             InitializeBoard();
-            SetupChessPieces();  
+            SetupChessPieces();
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace GiraffeChess.Domain.Domain
             var tileFrom = Tiles[from].Piece;
             SetTile(from, null);
             SetTile(to, tileFrom);
-            
+
         }
 
         public override bool Equals(object obj)
@@ -99,7 +99,8 @@ namespace GiraffeChess.Domain.Domain
             return obj is Board board &&
                    EqualityComparer<int?>.Default.Equals(Id, board.Id) &&
                    TurnSide == board.TurnSide &&
-                   EqualityComparer<IDictionary<string, BoardTile>>.Default.Equals(Tiles, board.Tiles);
+                   Tiles.Count == board.Tiles.Count &&
+                   Tiles.All(tile => tile.Value.Equals(board.Tiles[tile.Key]));
         }
 
         public override int GetHashCode()
