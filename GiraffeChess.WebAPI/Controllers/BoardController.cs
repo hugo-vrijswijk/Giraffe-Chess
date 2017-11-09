@@ -21,7 +21,7 @@ namespace GiraffeChess.WebAPI.Controllers
             GameService = gameService;
         }
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult NewGame()
         {
             var board = GameService.NewGame();
             return Created($"{controllerName}/{board.Id}", GameService.NewGame());

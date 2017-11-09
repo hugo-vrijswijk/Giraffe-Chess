@@ -30,7 +30,7 @@ namespace GiraffeChess.Test.Unit.WebAPI
         [TestMethod]
         public void Get_GivenNoBoardId_ShouldCallNewGame()
         {
-            var result = sut.Get();
+            var result = sut.NewGame();
 
             gameServiceMock.Verify(gameService => gameService.NewGame());
         }
@@ -38,7 +38,7 @@ namespace GiraffeChess.Test.Unit.WebAPI
         [TestMethod]
         public void Get_GivenNoBoardId_ShouldReturnCreatedResponseWithLocation()
         {
-            var result = sut.Get();
+            var result = sut.NewGame();
             
             var expectedBoard = new Board() { Id = 1 };
             Assert.IsInstanceOfType(result, typeof(CreatedResult));
