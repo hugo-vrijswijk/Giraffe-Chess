@@ -1,5 +1,4 @@
-﻿using GiraffeChess.Domain.Domain;
-using GiraffeChess.DomainService.Service;
+﻿using GiraffeChess.DomainService.Service;
 using GiraffeChess.Test.Unit.Mock;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
