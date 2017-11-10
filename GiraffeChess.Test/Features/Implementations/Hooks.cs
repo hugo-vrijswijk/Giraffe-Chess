@@ -14,7 +14,8 @@ namespace GiraffeChess.Test.Features.Implementations
         [BeforeScenario]
         public void SetupController()
         {
-            var boardController = new BoardController(new GameService(new MockBoardRepository()));
+            var boardRepository = new InMemoryDb().BoardRepository;
+            var boardController = new BoardController(new GameService(boardRepository));
             ScenarioContext.Current["BoardController"] = boardController;
         }
     }
