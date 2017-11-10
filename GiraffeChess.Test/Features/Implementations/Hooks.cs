@@ -11,7 +11,7 @@ namespace GiraffeChess.Test.Features.Implementations
     [Binding]
     public class Hooks
     {
-        [BeforeScenario("@controller")]
+        [BeforeScenario]
         public void SetupController()
         {
             var boardController = new BoardController(new GameService(new MockBoardRepository()));

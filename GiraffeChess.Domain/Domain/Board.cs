@@ -6,7 +6,7 @@ namespace GiraffeChess.Domain.Domain
     {
         private static readonly string[] Columns = { "A", "B", "C", "D", "E", "F", "G", "H" };
         private static readonly int[] AllowedRows = { 1, 2, 7, 8 };
-        private static readonly Piece[] ChessPreset = { Piece.Rook, Piece.Knight, Piece.Bishop, Piece.King, Piece.Queen, Piece.Bishop, Piece.Knight, Piece.Rook };
+        private static readonly Piece[] ChessPreset = { Piece.Rook, Piece.Knight, Piece.Bishop, Piece.Queen, Piece.King, Piece.Bishop, Piece.Knight, Piece.Rook };
         private const int BoardSize = 8;
         public int? Id { get; set; }
         public Side TurnSide { get; set; }
@@ -45,30 +45,30 @@ namespace GiraffeChess.Domain.Domain
             var columnsKeys = new List<string>(Tiles.Keys);
             var chessPieceIndex = 0;
 
-            foreach (string key in columnsKeys)
+            foreach (var key in columnsKeys)
             {
                 var rowNumber = int.Parse(key.Substring(1));
                 var allowedRow = AllowedRows.Contains(rowNumber);
-                if (chessPieceIndex >= 8)
+                if (chessPieceIndex > 7)
                 {
                     chessPieceIndex = 0;
                 }
 
                 if (allowedRow)
                 {
-                    Side side = Side.White;
-                    Piece chosenPiece = ChessPreset[chessPieceIndex];
+                    var side = Side.White;
+                    var chosenPiece = ChessPreset[chessPieceIndex];
 
                     if (rowNumber > 3)
                     {
                         side = Side.Black;
                     }
-                    else if (rowNumber == 2 || rowNumber == 7)
+                    if (rowNumber == 2 || rowNumber == 7)
                     {
                         chosenPiece = Piece.Pawn;
                     }
 
-                    ChessPiece piece = new ChessPiece(chosenPiece, side);
+                    var piece = new ChessPiece(chosenPiece, side);
                     Tiles[key].Piece = piece;
                     chessPieceIndex++;
                 }

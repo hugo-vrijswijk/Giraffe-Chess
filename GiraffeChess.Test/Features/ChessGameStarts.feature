@@ -1,5 +1,4 @@
-﻿@controller
-Feature: ChessGameStarts
+﻿Feature: ChessGameStarts
  As a chess player I want to get started with the game a color black or white.
 
 Scenario: Start the game
