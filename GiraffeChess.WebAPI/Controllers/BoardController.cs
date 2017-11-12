@@ -13,26 +13,25 @@ namespace GiraffeChess.WebAPI.Controllers
     [Route("[controller]")]
     public class BoardController : Controller
     {
-        private static readonly string controllerName = nameof(BoardController).Replace("Controller", string.Empty).ToLower();
-        private IGameService GameService { get; }
+        private static readonly string ControllerName = nameof(BoardController).Replace("Controller", string.Empty).ToLower();
 
-        public BoardController(IGameService gameService)
+        private IBoardService BoardService { get; }
+
+        public BoardController(IBoardService boardService)
         {
-            GameService = gameService;
+            BoardService = boardService;
         }
         [HttpGet]
         public IActionResult NewGame()
         {
-            var board = GameService.NewGame();
-            return Created($"{controllerName}/{board.Id}", GameService.NewGame());
+            var board = BoardService.NewGame();
+            return Created($"{ControllerName}/{board.Id}", board);
         }
 
         [HttpPost]
         public IActionResult Move([FromBody] MoveCommand command)
         {
-            return Ok(GameService.Move(command));
+            return Ok(BoardService.Move(command));
         }
-
-
     }
 }

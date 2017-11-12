@@ -6,7 +6,7 @@ using GiraffeChess.DomainService.Command;
 
 namespace GiraffeChess.DomainService.Service
 {
-    public interface IGameService
+    public interface IBoardService
     {
         Board NewGame();
         Board Move(MoveCommand command);

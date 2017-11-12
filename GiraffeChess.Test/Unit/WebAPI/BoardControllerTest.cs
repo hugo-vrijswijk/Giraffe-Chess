@@ -14,12 +14,12 @@ namespace GiraffeChess.Test.Unit.WebAPI
     public class BoardControllerTest
     {
         private BoardController sut;
-        private Mock<IGameService> gameServiceMock;
+        private Mock<IBoardService> gameServiceMock;
 
         [TestInitialize]
         public void Init()
         {
-            gameServiceMock = new Mock<IGameService>();
+            gameServiceMock = new Mock<IBoardService>();
             sut = new BoardController(gameServiceMock.Object);
 
             gameServiceMock

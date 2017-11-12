@@ -6,11 +6,11 @@ using GiraffeChess.DomainService.Command;
 
 namespace GiraffeChess.DomainService.Service
 {
-    public class GameService : IGameService
+    public class BoardService : IBoardService
     {
         private readonly IBoardRepository _boardRepository;
 
-        public GameService(IBoardRepository boardRepository)
+        public BoardService(IBoardRepository boardRepository)
         {
             _boardRepository = boardRepository;
         }

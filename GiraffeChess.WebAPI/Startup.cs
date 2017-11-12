@@ -32,7 +32,7 @@ namespace GiraffeChess.WebAPI
             services.AddTransient<ChessPieceMapper>();
 
             services.AddTransient<IBoardRepository, BoardRepository>();
-            services.AddTransient<IGameService, GameService>();
+            services.AddTransient<IBoardService, BoardService>();
             services.AddMvc();
         }
 

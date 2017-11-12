@@ -7,12 +7,13 @@ namespace GiraffeChess.Test.Unit.DomainService
     [TestClass]
     public class BoardServiceTest
     {
+        public TestContext TestContext { get; set; }
         [TestMethod]
         public void NewGame_ShouldReturnNewBoardWithId1()
         {
 
-            var inMemoryDbRepo = new InMemoryDb().BoardRepository;
-            var sut = new GameService(inMemoryDbRepo);
+            var inMemoryDbRepo = new InMemoryDb(TestContext.TestName).BoardRepository;
+            var sut = new BoardService(inMemoryDbRepo);
 
             var result = sut.NewGame().Id;
 

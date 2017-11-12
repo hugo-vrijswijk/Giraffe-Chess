@@ -13,15 +13,16 @@ namespace GiraffeChess.Test.Unit.Mock
     {
         public IBoardRepository BoardRepository;
 
-        public InMemoryDb()
+        public InMemoryDb(string testName)
         {
             var options = new DbContextOptionsBuilder()
-                .UseInMemoryDatabase("Boardinmemory")
+                .UseInMemoryDatabase("boardinmemory/" + testName + DateTime.Now.ToLongTimeString())
                 .Options;
             var boardMapper = new BoardMapper(new BoardTileMapper(new ChessPieceMapper()));
             var context = new ChessContext(options);
             BoardRepository = new BoardRepository(context, boardMapper);
 
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
     }

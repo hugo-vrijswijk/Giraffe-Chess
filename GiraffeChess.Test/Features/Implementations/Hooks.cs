@@ -4,6 +4,7 @@ using System.Text;
 using GiraffeChess.DomainService.Service;
 using GiraffeChess.Test.Unit.Mock;
 using GiraffeChess.WebAPI.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 
 namespace GiraffeChess.Test.Features.Implementations
@@ -14,8 +15,8 @@ namespace GiraffeChess.Test.Features.Implementations
         [BeforeScenario]
         public void SetupController()
         {
-            var boardRepository = new InMemoryDb().BoardRepository;
-            var boardController = new BoardController(new GameService(boardRepository));
+            var boardRepository = new InMemoryDb("FeatureTest").BoardRepository;
+            var boardController = new BoardController(new BoardService(boardRepository));
             ScenarioContext.Current["BoardController"] = boardController;
         }
     }
