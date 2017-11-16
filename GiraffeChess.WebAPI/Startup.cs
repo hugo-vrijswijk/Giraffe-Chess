@@ -1,4 +1,5 @@
-﻿using GiraffeChess.DomainService;
+﻿using System;
+using GiraffeChess.DomainService;
 using GiraffeChess.DomainService.Service;
 using GiraffeChess.Infrastructure.Entities;
 using GiraffeChess.Infrastructure.Mapper;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace GiraffeChess.WebAPI
 {
