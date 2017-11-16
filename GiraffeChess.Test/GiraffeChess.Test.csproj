@@ -4,11 +4,12 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <PackageReference Include="Moq" Version="4.7.145" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="Serilog" Version="2.5.0" />
     <PackageReference Include="SpecFlow" Version="2.1.0" />
     <PackageReference Include="SpecFlow.MsTest" Version="2.1.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />

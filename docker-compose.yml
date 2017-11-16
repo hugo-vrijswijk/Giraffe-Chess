@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  giraffechess.webapi:
+    image: giraffechess.webapi
+    build:
+      context: ./GiraffeChess.WebAPI
+      dockerfile: Dockerfile

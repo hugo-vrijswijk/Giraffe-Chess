@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Domain", "GiraffeChess.Domain\GiraffeChess.Domain.csproj", "{FAB10969-FE82-4664-9D89-76B420744A8F}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.DomainService", "GiraffeChess.DomainService\GiraffeChess.DomainService.csproj", "{B2F7088E-F85D-4659-9CAF-67ADE411D3CC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiraffeChess.Infrastructure", "GiraffeChess.Infrastructure\GiraffeChess.Infrastructure.csproj", "{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{68197FD2-4FBB-4326-9B4E-220352F6DAE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18A6F09-6339-4CAF-88C8-F5F0BE656B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68197FD2-4FBB-4326-9B4E-220352F6DAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68197FD2-4FBB-4326-9B4E-220352F6DAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68197FD2-4FBB-4326-9B4E-220352F6DAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68197FD2-4FBB-4326-9B4E-220352F6DAE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
