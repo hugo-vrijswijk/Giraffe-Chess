@@ -11,7 +11,7 @@ dotnet_csproj:
   informational_version: '{version}'
 
 before_build:
-- ps: dotnet restore
+- ps: dotnet restore GiraffeChess.sln
 build:
   verbosity: minimal
 
