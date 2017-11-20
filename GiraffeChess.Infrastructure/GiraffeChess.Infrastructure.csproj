@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\LogRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GiraffeChess.DomainService\GiraffeChess.DomainService.csproj" />
   </ItemGroup>
 

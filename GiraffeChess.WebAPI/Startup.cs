@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Dag37.MQ.Lib;
 
 namespace GiraffeChess.WebAPI
 {
@@ -33,10 +34,15 @@ namespace GiraffeChess.WebAPI
             services.AddTransient<BoardMapper>();
             services.AddTransient<BoardTileMapper>();
             services.AddTransient<ChessPieceMapper>();
+            services.AddTransient<BusCommunicator>();
 
             services.AddTransient<IBoardRepository, BoardRepository>();
             services.AddTransient<IBoardService, BoardService>();
+            services.AddTransient<ILogService, LogService>();
+            services.AddRabbitMQ(new BusOptions { HostName = "localhost", Port = 5672 });
             services.AddMvc();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +58,7 @@ namespace GiraffeChess.WebAPI
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
             }
-                
+            app.UseRabbitMQ();
             app.UseMvc();
         }
     }
