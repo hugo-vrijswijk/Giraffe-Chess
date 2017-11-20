@@ -15,8 +15,9 @@ before_build:
 build:
   verbosity: minimal
 
-before_test:
+test_script:
 - ps: dotnet build GiraffeChess.Test/GiraffeChess.Test.csproj
+- ps: dotnet test GiraffeChess.Test/GiraffeChess.Test.csproj
 
 cache:
 - '%USERPROFILE%\.nuget\packages -> **\*.csproj'  # Cache NuGet packages unless .csproj changed
