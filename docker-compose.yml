@@ -1,8 +1,17 @@
 version: '3'
 
 services:
-  giraffechess.webapi:
-    image: giraffechess.webapi
+  giraffechess:
+    image: giraffechess
+    ports:
+      - 8080:80
     build:
       context: ./GiraffeChess.WebAPI
       dockerfile: Dockerfile
+      args:
+        source: bin/release/netcoreapp2.0/publish
+  sql:
+    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=Geheim_101

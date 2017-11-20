@@ -26,7 +26,8 @@ namespace GiraffeChess.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var dbConn = Configuration.GetConnectionString("DbConn");
+            var dbConn = Environment.GetEnvironmentVariable("DB_CONN") ??
+                         Configuration.GetConnectionString("DbConn");
             services.AddDbContext<ChessContext>(options => options.UseSqlServer(dbConn),
                 ServiceLifetime.Transient, ServiceLifetime.Singleton);
 
