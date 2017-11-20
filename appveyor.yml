@@ -11,13 +11,13 @@ dotnet_csproj:
   informational_version: '{version}'
 
 before_build:
-- ps: dotnet restore GiraffeChess.Test/GiraffeChess.Test.csproj
+- ps: dotnet restore .\GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj
 build:
   verbosity: minimal
 
 test_script:
-- ps: dotnet build GiraffeChess.Test/GiraffeChess.Test.csproj
-- ps: dotnet test GiraffeChess.Test/GiraffeChess.Test.csproj
+- ps: dotnet build .\GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj
+- ps: dotnet test .\GiraffeChess.WebAPI\GiraffeChess.WebAPI.csproj
 
 cache:
 - '%USERPROFILE%\.nuget\packages -> **\*.csproj'  # Cache NuGet packages unless .csproj changed
